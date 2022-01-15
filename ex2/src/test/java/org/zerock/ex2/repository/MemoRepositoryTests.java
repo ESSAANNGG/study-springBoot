@@ -28,13 +28,14 @@ public class MemoRepositoryTests {
             Memo memo = Memo.builder().memoText("Sample..."+i).build();
             memoRepository.save(memo);
         });
+
     }
 
+    //100번의 long형 메모 찾기
     @Test
     public void testSelect(){
 
         Long mno = 100L;
-
         Optional<Memo> result = memoRepository.findById(mno);
 
         System.out.println("=================================");
@@ -45,6 +46,7 @@ public class MemoRepositoryTests {
         }
     }
 
+    //100번의 메모 수정
     @Test
     public void testUpdate(){
         Memo memo = Memo.builder()
@@ -53,6 +55,7 @@ public class MemoRepositoryTests {
         memoRepository.save(memo);
     }
 
+    //100번의 메모 삭제
     @Test
     public void testDelete(){
         Long mno = 100L;

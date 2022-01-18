@@ -6,8 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.zerock.ex2.entity.Memo;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.IntStream;
 
@@ -81,5 +83,29 @@ public class MemoRepositoryTests {
         System.out.println("has next Page? : " + result.hasNext());
         System.out.println("first Pages? :" + result.isFirst());
 
+    }
+
+    @Test
+    public void testSort(){
+
+        Sort sort1 = Sort.by("mno").descending();
+        Sort sort2 = Sort.by("memoText").ascending();
+        Sort sortAll = sort1.and(sort2);
+
+        Pageable pageable = PageRequest.of(0, 10, sortAll);
+        Page<Memo> result = memoRepository.findAll(pageable);
+
+        result.get().forEach(memo -> {
+            System.out.println(memo);
+        });
+    }
+
+    @Test
+    public void testQueryMethod(){
+        List<Memo> list = memoRepository.findByMnoBetweenOrderByMnoDesc(70L,80L);
+
+        for (Memo memo : list){
+            System.out.println(list);
+        }
     }
 }

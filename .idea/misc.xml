@@ -5,6 +5,15 @@
     <file type="web" url="file://$PROJECT_DIR$/ex1" />
     <file type="web" url="file://$PROJECT_DIR$/ex2" />
     <file type="web" url="file://$PROJECT_DIR$/ex3" />
+    <file type="web" url="file://$PROJECT_DIR$/guestbook" />
+    <file type="web" url="file://$PROJECT_DIR$/guestboot" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/guestbook/pom.xml" />
+      </list>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
